@@ -1,4 +1,4 @@
-FROM evarga/jenkins-slave
+FROM yebyen/jenkins-slave
 MAINTAINER mario.zagar@hotmail.com
 
 # remove openjdk
@@ -10,14 +10,14 @@ RUN apt-get install -y git wget
 
 # Install Oracle JDK 8
 RUN wget --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" \
-    http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz  && \
+    http://download.oracle.com/otn-pub/java/jdk/8u112-b15/jdk-8u112-linux-x64.tar.gz  && \
     mkdir /opt/jdk && \
-    tar -zxf jdk-8u101-linux-x64.tar.gz -C /opt/jdk && \
-    rm jdk-8u101-linux-x64.tar.gz && \
-    update-alternatives --install /usr/bin/java  java  /opt/jdk/jdk1.8.0_101/bin/java 100 && \
-    update-alternatives --install /usr/bin/javac javac /opt/jdk/jdk1.8.0_101/bin/javac 100 && \
-    update-alternatives --install /usr/bin/jar   jar   /opt/jdk/jdk1.8.0_101/bin/jar 100 && \
-    ln -s /opt/jdk/jdk1.8.0_101 /opt/jdk/latest
+    tar -zxf jdk-8u112-linux-x64.tar.gz -C /opt/jdk && \
+    rm jdk-8u112-linux-x64.tar.gz && \
+    update-alternatives --install /usr/bin/java  java  /opt/jdk/jdk1.8.0_112/bin/java 100 && \
+    update-alternatives --install /usr/bin/javac javac /opt/jdk/jdk1.8.0_112/bin/javac 100 && \
+    update-alternatives --install /usr/bin/jar   jar   /opt/jdk/jdk1.8.0_112/bin/jar 100 && \
+    ln -s /opt/jdk/jdk1.8.0_112 /opt/jdk/latest
 
 # Install maven 3.3.9
 RUN wget http://mirrors.sonic.net/apache/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz && \
